@@ -1,8 +1,8 @@
 <?php
 
 $car_mod=$_POST['carmodel'];
-$car_type=$_POST['cartype'];
-$car_brand=$_POST['carbrand'];
+$car_type=strtolower($_POST['cartype']);
+$car_brand=strtolower($_POST['carbrand']);
 $car_price=$_POST['carprice'];
 $rURL=$_POST['rev_url'];
 $iURL=$_POST['img_url'];
