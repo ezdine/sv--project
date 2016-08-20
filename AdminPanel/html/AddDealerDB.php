@@ -1,9 +1,10 @@
 <?php
 
 $d_name=$_POST['Dname'];
-$d_brand=$_POST['Dbrand'];
+$d_brand=strtolower($_POST['Dbrand']);
 $d_location=$_POST['Dlocation'];
 $d_contact=$_POST['Dcontact'];
+
 
 
 
