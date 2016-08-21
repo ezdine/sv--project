@@ -26,7 +26,6 @@
     <link rel="stylesheet" type="text/css" href="css/vicons-font.css"/>
     <script src="js/nouislider.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
-    <script src="js/wNumb.js"></script>
 
 
 </head>
@@ -38,23 +37,7 @@
 				<div class="logo">
 					<a href="#"><img src="img/logo.png"></a>
 				</div>
-				<div class="primary-nav-wrapper">
-					<div class="secondary-nav-wrapper">
-						<ul class="secondary-nav">
-							<li class="search"><a href="#search" class="show-search"><i class="fa fa-search"></i></a></li>
-						</ul>
-					</div>
-					<div class="search-wrapper">
-						<ul class="search">
-							<li>
-								<input type="text" id="search-input" placeholder="Start typing then hit enter to search">
-							</li>
-							<li>
-								<a href="#" class="hide-search"><i class="fa fa-close"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
+				
 				
 			</div>
 		</div>
@@ -111,109 +94,53 @@
 	</header>
     
     
+    
  <div class="container-fluid details" id="selectcar">
      <section class="compare-section bg-1">
          
          <div class="pricing compare-inner">
-         
-         
-         <!--Get Review-->
-        <div class="pricing__item price1">
-                <center><h2>Get Review</h2></center><br/><br/><br/>
-                <div role="form" class="forms">
-                    <h2 style="font-size:20px;">Select Type</h2><br/>
-                        <div class="form-group">
-                        <select class="form-control" name="first-choice3" id="first-choice3">
-                            <option value="" selected="">Type</option>
-                            <option value="hatchback">Hatchback</option>
-                            <option value="sedan">Sedan</option>
-                            <option value="suv">SUV</option>
-                            <option value="muv">MUV</option>
-                            <option value="coupe">Coupe</option>
-                        </select>  
-                      </div><br/>
-                    <h2 style="font-size:20px;">Select Brand</h2><br/>
-                        <div class="form-group">
-                        <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
-                        </select>  
-                      </div><br/>
-                        <div class="form-group">
-                        <h2 style="font-size:20px;">Select Car</h2><br/>
-                        <select class="form-control" id="third-choice3" name="third-choice3">
-                            <option value="" selected="">Car Name</option>
-                            
-                        </select>  
-                        </div><br/>
-                    <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center><br/>
-                </div>
-                
-            </div>
-         <!--Get Review ends-->
-        
-             <!--Find Cars-->
+         <!--Find Cars-->
             <div class="pricing__item price1">
             <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
-                <h2 style="font-size:20px;">Select price Limit</h2><br/>
-			
-			<div id="slider-huge"></div><br/>
-                <div class="row">
-			<p class="col-xs-1 col-xs-offset-4">Rs</p><span class="col-xs-4 example-val" style="padding-top:5px;" id="huge-value"></span><br/>
-                </div>
+                <h2 style="font-size:20px;">Select price range in Lakhs</h2><br/>
+			<div id="skipstep"></div><br/><br/><br/>
+                
+                 <span class="example-val" id="skip-value-lower"></span>
+			     <span class="example-val" id="skip-value-upper"></span><br/><br/>
 			<!--slider script-->
                   <script>
-                    var bigValueSlider = document.getElementById('slider-huge'),
-	                bigValueSpan = document.getElementById('huge-value');
+                      var skipSlider = document.getElementById('skipstep');
 
-                      noUiSlider.create(bigValueSlider, {
-	                       start: 1,
-	                       step: 1,
-	                       format: wNumb({
-                               decimals: 0
-	                       }),
-	                       range: {
-                           min: 0,
-		                   max: 14
-	                       }
-                        });
-                </script>			
-                <script>
-                    // Note how these are 'string' values, not numbers.
-                    var range = [
-	                   '5,00,000','10,00,000','20,00,000',
-	                   '30,00,000','40,00,000','50,00,000',
-	                   '75,00,000','1,00,00,000','1,50,00,000',
-	                   '2,00,00,000','2,50,00,000',
-	                   '3,00,00,000','3,50,00,000',
-	                   '4,00,00,000','10,00,00,000'
+                      noUiSlider.create(skipSlider, {
+                        range: {
+                        'min': 0,
+                        '10%': 10,
+                        '20%': 20,
+                        '30%': 30,
+		                '40%': 40,
+                        '50%': 50,
+                        '60%': 60,
+                        '70%': 70,
+		                '80' : 80,
+                        '90%': 90,
+                        'max': 100
+                    },
+                    snap: true,
+                    start: [20, 80]
+                    });
+                  </script>			
+                  <script>
+                    var skipValues = [
+	               document.getElementById('skip-value-lower'),
+	               document.getElementById('skip-value-upper')
                     ];
 
-                    bigValueSlider.noUiSlider.on('update', function ( values, handle ) {
-	                bigValueSpan.innerHTML = range[values[handle]];
-                        });
-                </script>   
-                
+                    skipSlider.noUiSlider.on('update', function( values, handle ) {
+	                skipValues[handle].innerHTML = values[handle];
+                    });
+                  </script>
+
                 <!--slider script ends-->
-                
                 <h2 style="font-size:20px;">Select Type</h2><br/>
                 <select class="form-control" name="second-choice" id="brand-choice" onchange="get_data()">
                           <option value="" selected="">Type</option>
@@ -246,42 +173,29 @@
                             <option value="volkswagon">Volkswagon</option>
                             <option value="volvo">Volvo</option>
                         </select><br/><br/>
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="daily" id="daily" value="daily" /><img src="img/rc1.png" class="img1"></label><center><p style="font-size:8px">Daily Travel</p></center>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="weekend" id="weekend" value="weekend" /><img src="img/rc2.png" class="img2"></label>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="high" id="high" value="high" /><img src="img/rc3.png" class="img3"></label>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="utility" id="utility" value="weekend" /><img src="img/rc4.png" class="img4"></label>
-                    </div>
-                </div>
-                <style>
-                    label > input{ /* HIDE RADIO */
-                    visibility: hidden; /* Makes input not-clickable */
-                    position: absolute; /* Remove input from document flow */
-                    }
-                    label > input + img{ /* IMAGE STYLES */
-                        cursor:pointer;
-                        border:2px solid transparent;
-                    }
-
-
-                </style>
-                <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
+                <center>
+                    
+                    <button class="button button--shikoba button--round-l"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
             </div>
          <!--Find Cars ends-->
-        
-             
-         <!--Find Dealer-->
-             
-        <div class="pricing__item price1 ">
-            <center><h2 style="font-size:35px;">Find Your Dealer</h2></center><br/><br/><br/>
-             <h2 style="font-size:20px;">Select Brand</h2><br/>
+         
+         <!--Get Review-->
+        <div class="pricing__item price1">
+        <form action="getreview.php" method="post">
+                <center><h2>Get Review</h2></center><br/><br/><br/>
+                <div role="form" class="forms">
+                    <h2 style="font-size:20px;">Select Type</h2><br/>
+                        <div class="form-group">
+                        <select class="form-control" name="first-choice4" id="first-choice4">
+                            <option value="" selected="">Type</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="muv">MUV</option>
+                            <option value="coupe">Coupe</option>
+                        </select>  
+                      </div><br/>
+                    <h2 style="font-size:20px;">Select Brand</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice4" id="second-choice4" onchange="get_data4()">
                             <option value="" selected="">Brand</option>
@@ -306,20 +220,73 @@
                             <option value="volvo">Volvo</option>
                         </select>  
                       </div><br/>
+                        <div class="form-group">
+                        <h2 style="font-size:20px;">Select Car</h2><br/>
+                        <select class="form-control" id="third-choice4" name="third-choice4">
+                            <option value="" selected="">Car Name</option>
+                            
+                        </select>  
+                        </div><br/>
+                    <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center><br/>
+                </div>
+                </form>
+            </div>
+         <!--Get Review ends-->
+         
+         <!--Find Dealer-->
+             
+        <div class="pricing__item price1 ">
+        <form action="finddealerpage.php" method="post">
+                    <center><h2 style="font-size:35px;">Find Your Dealer</h2></center><br/><br/><br/>
+             <h2 style="font-size:20px;">Select Brand</h2><br/>
+                        <div class="form-group">
+                        <select class="form-control" name="first-choice3" id="first-choice3">
+                            <option value="" selected="">Brand</option>
+                            <option value="audi">AUDI</option>
+                            <option value="bmw">BMW</option>
+                            <option value="bentley">Bentley</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="ford">Ford</option>
+                            <option value="honda">Honda</option>
+                            <option value="hyundai">Hyundai</option>
+                            <option value="jaguar">Jaguar</option>
+                            <option value="mahindra">Mahindra</option>
+                            <option value="maruthi">Maruthi</option>
+                            <option value="merc">Mercedes</option>
+                            <option value="nissan">Nissan</option>
+                            <option value="renault">Renault</option>
+                            <option value="skoda">Skoda</option>
+                            <option value="tata">TATA</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="volkswagon">Volkswagon</option>
+                            <option value="volvo">Volvo</option>
+                        </select>  
+                      </div><br/>
              <h2 style="font-size:20px;">Select State</h2><br/>
                         <div class="form-group">
-                        <select class="form-control" name="second-choice5" id="second-choice5" onchange="get_data5()">
-                            <option value="all" selected="">All State</option>
+                        <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
+                            <option value="" selected="">State</option>
+                            <option value="kerala">Kerala</option>
+                            <option value="tamil nadu">Tamil Nadu</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="andhra pradesh">Andhra Pradesh</option>
+                            <option value="goa">Goa</option>
+                            <option value="maharashtra">Maharashtra</option>
+
                         </select>  
                       </div><br/>
              <h2 style="font-size:20px;">Select Location</h2><br/>
                         <div class="form-group">
-                        <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
+                        <select class="form-control" name="third-choice3" id="third-choice3">
                             <option value="" selected="">Location</option>
                         </select>  
+                     
                       </div><br/>
-            <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
-            
+           
+
+            <center><button class="button button--shikoba button--round-l" disabled="true" name="search" id="search"><i class="button__icon icon icon-search" ></i><span>Search</span></button></center><br/>
+            </form>
         </div>
          <!--Find Dealer ends-->
          </div>
@@ -453,7 +420,7 @@
                 <li><a href='#' >About</a></li> 
             </ul>
         </div>
-    </footer>>
+    </footer>
 	<!-- END SECTION: Footer -->
 	<!-- JS CDNs -->
 	<script src="js/jquery.min.js"></script>
@@ -472,6 +439,8 @@
 
 <!--Ajax scripts for populating the car models dropdown lists
 get_data() populates the first box and get_data2() populates the second box -->	
+
+<!--Ajax script for populating the compare dropdown lists on find compare section-->
 	<script type="text/javascript">
 
 
@@ -513,87 +482,59 @@ get_data() populates the first box and get_data2() populates the second box -->
 			document.getElementById("submit").disabled=true;
 	}
 </script>
-    <!--Ajax scripts for populating the car models dropdown lists on get review section-->
+    
+
+ <!--Ajax script for populating the dealer dropdown list on find dealer section-->
     <script type="text/javascript">
 
 
-	function get_data3()
-	{
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function(){
-			if(xhttp.readyState == 4 && xhttp.status == 200)
-			{
-				document.getElementById("third-choice3").innerHTML = xhttp.responseText;
-			}
-		};
-		xhttp.open("GET", "getter.php?second-choice="+document.getElementById("second-choice3").value+"&first-choice="+document.getElementById("first-choice3").value, true);
-		xhttp.send();
+    function get_data3()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200)
+            {
+                document.getElementById("third-choice3").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "getter2.php?second-choice3="+document.getElementById("second-choice3").value+"&first-choice3="+document.getElementById("first-choice3").value, true);
+        xhttp.send();
+
+        if ((document.getElementById('second-choice3').value!="")&&(document.getElementById('first-choice3').value!=""))
+             document.getElementById("search").disabled=false;
+        else
+            document.getElementById("search").disabled=true;
 
 
-	}
+    }
+</script>
+
+<!--Ajax script for populating the car models dropdown list on get review section-->
+<script type="text/javascript">
+
+
+    function get_data4()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200)
+            {
+                document.getElementById("third-choice4").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "getter.php?second-choice="+document.getElementById("second-choice4").value+"&first-choice="+document.getElementById("first-choice4").value, true);
+        xhttp.send();
+
+
+    }
 </script>
    
    
-<script>
-    $(".img1").click(function(){
-    if( $(this).attr('src') == "img/rc1.png" ) {
-        $(".img1").attr('src', "img/cr1.png"); 
-    }
-    $(".img2").click(function(){
-        $(".img1").attr('src',"img/rc1.png");
-    })
-    $(".img3").click(function(){
-        $(".img1").attr('src',"img/rc1.png");
-    })
-    $(".img4").click(function(){
-        $(".img1").attr('src',"img/rc1.png");
-    })
-})</script>
-<script>
-    $(".img2").click(function(){
-    if( $(this).attr('src') == "img/rc2.png" ) {
-        $(".img2").attr('src', "img/cr2.png"); // Make them all red
-    }
-    $(".img1").click(function(){
-        $(".img2").attr('src',"img/rc2.png");
-    })
-    $(".img3").click(function(){
-        $(".img2").attr('src',"img/rc2.png");
-    })
-    $(".img4").click(function(){
-        $(".img2").attr('src',"img/rc2.png");
-    })
-})</script>
-<script>
-    $(".img3").click(function(){
-    if( $(this).attr('src') == "img/rc3.png" ) {
-        $(".img3").attr('src', "img/cr3.png"); // Make them all red
-    }
-    $(".img1").click(function(){
-        $(".img3").attr('src',"img/rc3.png");
-    })
-    $(".img2").click(function(){
-        $(".img3").attr('src',"img/rc3.png");
-    })
-    $(".img4").click(function(){
-        $(".img3").attr('src',"img/rc3.png");
-    })
-})</script>
-<script>
-    $(".img4").click(function(){
-    if( $(this).attr('src') == "img/rc4.png" ) {
-        $(".img4").attr('src', "img/cr4.png"); // Make them all red
-    }
-    $(".img1").click(function(){
-        $(".img4").attr('src',"img/rc4.png");
-    })
-    $(".img2").click(function(){
-        $(".img4").attr('src',"img/rc4.png");
-    })
-    $(".img3").click(function(){
-        $(".img4").attr('src',"img/rc4.png");
-    })
-})</script>
+
+
+
+
+
 </body>
 
 </html>
