@@ -280,16 +280,32 @@ if(!empty($_SESSION['msg']))
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Price </label>
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Seating Capacity </label>
 										<div class="col-sm-9">
-											<input type="text" name="carprice" class="col-xs-10 col-sm-5" />
+											<input type="text" name="seat" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<!-- changes-->
+
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Engine Description </label>
+										<div class="col-sm-9">
+											<input type="text" name="edesc" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Mileage </label>
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Engine Type </label>
 										<div class="col-sm-9">
-											<input type="text" name="carmileage" class="col-xs-10 col-sm-5" />
+											<input type="text" name="etype" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Engine Displacement </label>
+										<div class="col-sm-9">
+											<input type="text" name="edisp" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>
 
@@ -301,11 +317,63 @@ if(!empty($_SESSION['msg']))
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 0-100 </label>
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Top Speed </label>
+										<div class="col-sm-9">
+											<input type="text" name="topspeed" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+								
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> 0-100 kmph </label>
 										<div class="col-sm-9">
 											<input type="text" name="c0to100" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Transmission Type </label>
+										<div class="col-sm-9">
+											<input type="text" name="trantype" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Fuel Type </label>
+										<div class="col-sm-9">
+											<input type="text" name="ftype" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Fuel Tank Capacity </label>
+										<div class="col-sm-9">
+											<input type="text" name="fcapacity" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Mileage </label>
+										<div class="col-sm-9">
+											<input type="text" name="carmileage" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									
+									<!-- ++++++-->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Price </label>
+										<div class="col-sm-9">
+											<input type="text" name="carprice" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									
+
+									
+
+									
 
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Review URL </label>
