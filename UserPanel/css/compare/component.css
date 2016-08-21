@@ -1,0 +1,130 @@
+.pricing {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	width: 100%;
+	margin: 0 auto 3em;
+}
+
+.pricing__item {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: stretch;
+	align-items: stretch;
+	text-align: center;
+	-webkit-flex: 0 1 330px;
+	flex: 0 1 330px;
+}
+
+
+.compare-inner .pricing__item {
+	margin: 1em;
+	padding: 2em;
+	cursor: default;
+	border-radius: 10px;
+	background: #1F1F1F;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.05), 0 15px 30px -10px rgba(0,0,0,0.3);
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+.compare-inner .pricing__item:hover {
+	background: #141315;
+}
+
+.compare-inner .pricing__title {
+	font-size: 2em;
+	width: 100%;
+	margin: 0 0 0.25em;
+	padding: 0 0 0.5em;
+	border-bottom: 3px solid rgb(27, 26, 28);
+}
+
+.compare-inner .pricing__price {
+	color: #E06060;
+	font-size: 1.75em;
+	padding: 1em 0 0.75em;
+}
+
+.compare-inner .pricing__sentence {
+	font-weight: bold;
+}
+
+.compare-inner .pricing__feature-list {
+	margin: 0;
+	padding: 1em 1.25em 2em;
+}
+
+.compare-inner .pricing__action {
+	font-weight: bold;
+	margin-top: auto;
+	padding: 0.75em 2em;
+	border-radius: 5px;
+	background: #E06060;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+.compare-inner .pricing__action:hover,
+.compare-inner .pricing__action:focus {
+	background: #BD3C3C;
+}
+
+.big{
+    font-size: 200px;
+    margin: 0 auto;
+    font-weight: lighter;
+}
+.pricing__item{
+    height: 350px;
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after {display: table;  content: ''; }
+.clearfix:after { clear: both; }
+
+
+.compare-section {
+	min-height: 100vh;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.compare-section {
+	position: relative;
+}
+
+.bg-1 {
+	background-size: cover;
+	color: #fff;
+}
+.big{
+    display: block;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+
+    -moz-border-radius: 50px; /* or 50% */
+    border-radius: 50px; /* or 50% */
+
+    background-color: #2a2a2a;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
+.forms{
+    padding-right: 24px;
+    padding-left: 24px;
+}
