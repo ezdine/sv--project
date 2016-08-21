@@ -20,15 +20,11 @@
     <link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
-	<link rel="stylesheet" type="text/css" href="css/cs-skin-boxes.css" />
-    <link rel="stylesheet" type="text/css" href="css/compare/component.css"/>
+	
 	<script src="js/modernizr.custom.js"></script>
 </head>
 
-<body>
+<body style="background:#414A52;color:white">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -153,12 +149,25 @@
 			$rateimage2=base64_encode(file_get_contents($rating2));
 
 			$html=file_get_html($url1);//scraping contents from the url.
+			
+			/*Remove image tags from scraped contents */
+			foreach($html ->find('img') as $item)
+			 {
+               $item->outertext = '';
+             }
+             $html->save();
+			
 			$html2=file_get_html($url2);
+			foreach($html2 ->find('img') as $item) 
+			{
+              $item->outertext = '';
+            }
+            $html2->save();
             
             foreach($html->find('div.article') as $key)//scraping contents from the div tag with class name "article".
             {
 	         
-	         echo "REVIEW <br><br><br>".$row1['carid']."<br><br>".(string)$key->plaintext."<br>";
+	         echo "REVIEW <br><br><br>".$row1['carid']."<br><br>".(string)$key."<br>";
 	         echo '<img src="data:image/jpg;base64,'.$imageData.'">';
 	         echo "<br><br>Rating<br>";
 	         echo '<img src="data:image/png;base64,'.$rateimage1.'">';
@@ -168,7 +177,7 @@
 	        foreach($html2->find('div.article') as $key)//scraping contents from the div tag with class name "article".
             {
 	         
-	         echo "<br><br><br><br>".$row2['carid']."<br><br>".(string)$key->plaintext."<br>";
+	         echo "<br><br><br><br>".$row2['carid']."<br><br>".(string)$key."<br>";
 	         echo '<img src="data:image/jpg;base64,'.$imageData2.'">';
 	         echo "<br><br>Rating<br>";
 	         echo '<img src="data:image/png;base64,'.$rateimage2.'">';
@@ -202,29 +211,7 @@
 	window.jQuery || document.write('<script src="js/min/jquery-1.11.2.min.js"><\/script>')
 	</script>
 	<!-- JS Locals -->
-    <script src="js/classie.js"></script>
-		<script src="js/selectFx.js"></script>
-		<script src="js/fullscreenForm.js"></script>
-		<script>
-			(function() {
-				var formWrap = document.getElementById( 'fs-form-wrap' );
-
-				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-					new SelectFx( el, {
-						stickyPlaceholder: false,
-						onChange: function(val){
-							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
-						}
-					});
-				} );
-
-				new FForm( formWrap, {
-					onReview : function() {
-						classie.add( document.body, 'overview' ); // for demo purposes only
-					}
-				} );
-			})();
-		</script>
+    
 	<script src="js/min/bootstrap.min.js"></script>
 	<script src="js/min/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 	<script src="js/min/jquery.waypoints.min.js"></script>
