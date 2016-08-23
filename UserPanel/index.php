@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="#"><img src="img/logo.png"></a>
+					<a href="index.php"><img src="img/logo.png"></a>
 				</div>
 				
 				
