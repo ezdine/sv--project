@@ -37,6 +37,7 @@
 				<div class="logo">
 					<a href="index.php"><img src="img/logo.png"></a>
 				</div>
+
 				
 				
 			</div>
@@ -102,7 +103,7 @@
          
              <!--Get Review-->
         <div class="pricing__item price1">
-        <form action="getreview.php" method="post">
+        <form action="overview.php" method="post">
                 <center><h2>Get Review</h2></center><br/><br/><br/>
                 <div role="form" class="forms">
                     <h2 style="font-size:20px;">Select Type</h2><br/>
@@ -119,26 +120,16 @@
                     <h2 style="font-size:20px;">Select Brand</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice4" id="second-choice4" onchange="get_data4()">
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
+                           <option value="" selected="">Select Brand</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"car");
+                            $query="SELECT DISTINCT `brand` FROM `car`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
+                            <?php } ?>
                         </select>  
                       </div><br/>
                         <div class="form-group">
@@ -148,7 +139,7 @@
                             
                         </select>  
                         </div><br/>
-                    <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center><br/>
+                    <center><button class="button button--shikoba button--round-l" disabled="true" name="review" id="review"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center><br/>
                 </div>
                 </form>
             </div>
@@ -156,50 +147,26 @@
          <!--Find Cars-->
 
            <div class="pricing__item price1">
+            <form action="perfectcar.php" method="post">
             <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
                 <h2 style="font-size:20px;">Select price Limit</h2><br/>
-            
-            <div id="slider-huge"></div><br/>
-                <div class="row">
-            <p class="col-xs-1 col-xs-offset-4">Rs</p><span class="col-xs-4 example-val" style="padding-top:5px;" id="huge-value"></span><br/>
-                </div>
-            <!--slider script-->
-                  <script>
-                    var bigValueSlider = document.getElementById('slider-huge'),
-                    bigValueSpan = document.getElementById('huge-value');
-
-                      noUiSlider.create(bigValueSlider, {
-                           start: 1,
-                           step: 1,
-                           format: wNumb({
-                               decimals: 0
-                           }),
-                           range: {
-                           min: 0,
-                           max: 14
-                           }
-                        });
-                </script>           
-                <script>
-                    // Note how these are 'string' values, not numbers.
-                    var range = [
-                       '5,00,000','10,00,000','20,00,000',
-                       '30,00,000','40,00,000','50,00,000',
-                       '75,00,000','1,00,00,000','1,50,00,000',
-                       '2,00,00,000','2,50,00,000',
-                       '3,00,00,000','3,50,00,000',
-                       '4,00,00,000','10,00,00,000'
-                    ];
-
-                    bigValueSlider.noUiSlider.on('update', function ( values, handle ) {
-                    bigValueSpan.innerHTML = range[values[handle]];
-                        });
-                </script>   
+                <select class="form-control" name="price-choice" id="price-choice">
+                          <option value="" selected="">Select Budget</option>
+                            <option value="1000000">2L-10L</option>
+                            <option value="2000000">10L-20L</option>
+                            <option value="4000000">20L-40L</option>
+                            <option value="6000000">40L-60L</option>
+                            <option value="8000000">60L-80L</option> 
+                            <option value="10000000">80L-1Cr</option>  
+                            <option value="30000000">1Cr-3Cr</option> 
+                            <option value="80000000">Above 3Cr</option>  
+                        </select><br/><br/>
                 
-                <!--slider script ends-->
+                
+                
                 
                 <h2 style="font-size:20px;">Select Type</h2><br/>
-                <select class="form-control" name="second-choice" id="brand-choice" onchange="get_data()">
+                <select class="form-control" name="type-choice" id="type-choice">
                           <option value="" selected="">Type</option>
                             <option value="hatchback">Hatchback</option>
                             <option value="sedan">Sedan</option>
@@ -208,40 +175,31 @@
                             <option value="coupe">Coupe</option>  
                         </select><br/><br/>
                 <h2 style="font-size:20px;">Select Brand</h2><br/>
-                <select class="form-control" name="second-choice" id="brand-choice" onchange="get_data()">
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
+                <select class="form-control" name="brand-choice" id="brand-choice">
+                        
+                           <option value="" selected="">Select Brand</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"car");
+                            $query="SELECT DISTINCT `brand` FROM `car`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
+                            <?php } ?>
                         </select><br/><br/>
                 <div class="row">
                     <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="daily" id="daily" value="daily" /><img src="img/rc1.png" class="img1"></label><center><p style="font-size:8px">Daily Travel</p></center>
+                        <label><input type="radio" name="rb" value="daily" /><img data-toggle="tooltip" title="Daily Usage" data-placement="bottom" src="img/rc1.png" class="img1"></label><center></center>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="weekend" id="weekend" value="weekend" /><img src="img/rc2.png" class="img2"></label>
+                        <label><input type="radio" name="rb" value="weekend" /><img data-toggle="tooltip" title="Weekend Trips" data-placement="bottom" src="img/rc2.png" class="img2"></label>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="high" id="high" value="high" /><img src="img/rc3.png" class="img3"></label>
+                        <label><input type="radio" name="rb"  value="high" /><img data-toggle="tooltip" title="Permormance" data-placement="bottom"  src="img/rc3.png" class="img3"></label>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
-                        <label><input type="radio" name="utility" id="utility" value="weekend" /><img src="img/rc4.png" class="img4"></label>
+                        <label><input type="radio" name="rb"  value="utility" /><img data-toggle="tooltip" title="Utility" data-placement="bottom"  src="img/rc4.png" class="img4"></label>
                     </div>
                 </div>
                 <style>
@@ -257,6 +215,7 @@
 
                 </style>
                 <center><button class="button button--shikoba button--round-l"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
+            </form>
             </div>
          <!--Find Cars ends-->
          
@@ -270,44 +229,37 @@
              <h2 style="font-size:20px;">Select Brand</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="first-choice3" id="first-choice3">
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
+                         <option value="" selected="">Select Brand</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"cardealer");
+                            $query="SELECT DISTINCT `brand` FROM `cardealer`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
+                            <?php } ?>
                         </select>  
                       </div><br/>
              <h2 style="font-size:20px;">Select State</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
-                            <option value="" selected="">State</option>
-                            <option value="kerala">Kerala</option>
-                            <option value="tamil nadu">Tamil Nadu</option>
-                            <option value="karnataka">Karnataka</option>
-                            <option value="andhra pradesh">Andhra Pradesh</option>
-                            <option value="goa">Goa</option>
-                            <option value="maharashtra">Maharashtra</option>
-
+                            <option value="" selected="">Select State</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"cardealer");
+                            $query="SELECT DISTINCT `state` FROM `cardealer`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['state'];?> "> <?php echo ucfirst($row1['state']);?> </option>
+                            <?php } ?>
                         </select>  
                       </div><br/>
              <h2 style="font-size:20px;">Select Location</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="third-choice3" id="third-choice3">
+
                             <option value="" selected="">Location</option>
                         </select>  
                      
@@ -351,26 +303,17 @@
                       <br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice" id="second-choice" onchange="get_data()">
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
+                        
+                            <option value="" selected="">Select Brand</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"car");
+                            $query="SELECT DISTINCT `brand` FROM `car`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
+                            <?php } ?> 
                         </select>  
                       </div>
                       <br/>
@@ -398,26 +341,17 @@
                       <br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice2" id="second-choice2" onchange="get_data2()" >
-                            <option value="" selected="">Brand</option>
-                            <option value="audi">AUDI</option>
-                            <option value="bmw">BMW</option>
-                            <option value="bentley">Bentley</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="ford">Ford</option>
-                            <option value="honda">Honda</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="jaguar">Jaguar</option>
-                            <option value="mahindra">Mahindra</option>
-                            <option value="maruthi">Maruthi</option>
-                            <option value="merc">Mercedes</option>
-                            <option value="nissan">Nissan</option>
-                            <option value="renault">Renault</option>
-                            <option value="skoda">Skoda</option>
-                            <option value="tata">TATA</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="volkswagon">Volkswagon</option>
-                            <option value="volvo">Volvo</option>
+                            
+                            <option value="" selected="">Select Brand</option>
+                            <?php
+                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            mysqli_select_db($con1,"car");
+                            $query="SELECT DISTINCT `brand` FROM `car`";
+                            $result1=mysqli_query($con1,$query);
+                            while ($row1=mysqli_fetch_array($result1)){
+                        ?>
+                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
+                            <?php } ?>
                         </select>  
                       </div>
                       <br/>
@@ -488,7 +422,12 @@ get_data() populates the first box and get_data2() populates the second box -->
 
 	}
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 
+</script>
 
 <script type="text/javascript">
 
@@ -553,6 +492,10 @@ get_data() populates the first box and get_data2() populates the second box -->
         };
         xhttp.open("GET", "getter.php?second-choice="+document.getElementById("second-choice4").value+"&first-choice="+document.getElementById("first-choice4").value, true);
         xhttp.send();
+        if ((document.getElementById('second-choice4').value!="")&&(document.getElementById('first-choice4').value!=""))
+			 document.getElementById("review").disabled=false;
+		else
+			document.getElementById("review").disabled=true;
 
 
     }
@@ -617,6 +560,8 @@ get_data() populates the first box and get_data2() populates the second box -->
         $(".img4").attr('src',"img/rc4.png");
     })
 })</script>
+
+
    
    
 
