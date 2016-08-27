@@ -1,6 +1,7 @@
     <!DOCTYPE html>
     <html lang="en" class="no-js">
     	<head>
+            <meta charset="utf-8">
     		<link rel="stylesheet" type="text/css" href="overview/css/tabs.css" />
             <link rel="stylesheet" type="text/css" href="overview/css/styled.css"/>
             <link rel="stylesheet" type="text/css" href="overview/css/bootstrap.css"/>
@@ -41,15 +42,16 @@
     					</nav>
                         <?php 
                         include_once ('simple_html_dom.php');
-                        $type=$_POST['first-choice4'];
-                        $brand=$_POST['second-choice4'];
-                        $car=$_POST['third-choice4'];
+                        $type=$_GET['first-choice4'];
+                        $brand=$_GET['second-choice4'];
+                        $car=$_GET['third-choice4'];
                         if((empty($type))||(empty($brand))||(empty($car)))
                         {
                             echo '<script type="text/javascript">window.history.go(-1);</script>';
                         }
-                        $con=mysqli_connect('localhost','root','','carhunt');
+                        $con=mysqli_connect('localhost','root','ezdine@123','carhunt');
                         $selected=mysqli_select_db($con,"car");
+                
                         $query1="SELECT * FROM `car` WHERE `brand`='$brand' AND `type`='$type' AND `carid`='$car'";
                         $result1=mysqli_query($con, $query1);
                         $row2=mysqli_fetch_assoc($result1);
@@ -62,6 +64,15 @@
                                 $rating1=$row2['rating'];           
                                 $imageData = base64_encode(file_get_contents($img1));//encoding the scraped image in base64 format.
                                 $rateimage1=base64_encode(file_get_contents($rating1));  
+                                $url1=$row2['review_url'];
+                                $html=file_get_html($url1);//scraping contents from the url.
+                                 //Remove image tags from scraped contents
+                                 foreach($html ->find('img') as $item) 
+                                    {
+                                        $item->outertext = '';
+                                    }
+                                 $html->save();
+                                
 
                             ?>
                 
@@ -75,9 +86,11 @@
 
 
                                 <tr><th></th><td><?php echo '<img style="max-width:100% ;height:300px" src="data:image/jpg;base64,'.$imageData.'">'; ?></td></tr>
-                                <tr><th></th><td><h2><?php echo $row2['carid']; ?></h2></td></tr>
-                                <tr><th></th><td>Rs. <?php echo $row2['price']; ?></td></tr>
+                                <tr><th></th><td><h1><?php echo ucfirst($row2['carid']); ?></h1></td></tr>
+                                <tr><th></th><td>INR <?php echo $row2['price']; ?></td></tr>
                                 <tr><th></th><td><h5 style="color:#fff;margin:0 auto;">Rating</h5><br/><?php echo '<img src="data:image/png;base64,'.$rateimage1.'">'; ?></td></tr>
+                                
+                                <tr><th></th><td></td></tr>
 
                            
                                         
@@ -86,6 +99,8 @@
                                 </div>
                             <div class="col-sm-6">
                                 <iframe style="max-width:100%;"  width="560" height="300" src="<?php echo $row2['video']?>" frameborder="0" allowfullscreen></iframe>
+                               
+
                             </div>
                                 </div>
                             </div>
@@ -100,12 +115,12 @@
                                     <tbody>
 
 
-                                <tr><th>MODEL</th><td><?php echo $row2["carid"];?></td></tr>
+                                
                                 <tr><th>TYPE</th><td><?php echo $row2["type"];?></td></tr>
                                 <tr><th>TRANSMISSION TYPE</th><td><?php echo $row2["transtype"];?></td></tr>
-                                <tr><th>TOP SPEED</th><td><?php echo $row2["topspeed"];?></td></tr>
-                                <tr><th>0-100 kmph</th><td><?php echo $row2["c0to100"];?></td></tr>
-                                <tr><th>MILEAGE</th><td><?php echo $row2["mileage"];?></tr>
+                                <tr><th>TOP SPEED</th><td><?php echo $row2["topspeed"];?> kmph</td></tr>
+                                <tr><th>0-100 kmph</th><td><?php echo $row2["c0to100"];?> sec</td></tr>
+                                <tr><th>MILEAGE</th><td><?php echo $row2["mileage"];?> kmpl</td></tr>
                                 <tr><th>SEATING CAPACITY</th><td><?php echo $row2["seat"];?></td></tr>
                                 
 
@@ -123,11 +138,11 @@
                                     <tbody>
 
 
-                                <tr><th>MODEL</th><td><?php echo $row2["carid"];?></td></tr>
-                                <tr><th>TORQUE</th><td><?php echo $row2["torq"];?></td></tr>
+                                
+                                <tr><th>TORQUE</th><td><?php echo $row2["torq"];?> Nm</td></tr>
                                 <tr><th>FUEL TYPE</th><td><?php echo $row2["ftype"];?></td></tr>
-                                <tr><th>FUEL CAPACITY</th><td><?php echo $row2["fcap"];?></td></tr>
-                                <tr><th>DISPLACEMENT</th><td><?php echo $row2["edisp"];?></td></tr>
+                                <tr><th>FUEL CAPACITY</th><td><?php echo $row2["fcap"];?> Litres</td></tr>
+                                <tr><th>DISPLACEMENT</th><td><?php echo $row2["edisp"];?> cc</td></tr>
                                 <tr><th>ENGINE DESCRIPTION</th><td><?php echo $row2["edesc"];?></tr>
                                 <tr><th>ENGINE TYPE</th><td><?php echo $row2["etype"];?></td></tr>
                                 
@@ -141,17 +156,10 @@
     						<section id="section-iconfall-4"><p style="color:#fff;">
                             <?php
                             
-                                 $url1=$row2['review_url'];
-                                 $html=file_get_html($url1);//scraping contents from the url.
-                                 //Remove image tags from scraped contents
-                                 foreach($html ->find('img') as $item) 
-                                    {
-                                        $item->outertext = '';
-                                    }
-                                 $html->save();
+                               
                                  foreach($html->find('div.article') as $key)//scraping contents from the div tag with class name "article".
                                     { 
-                                        echo "REVIEW <br><br><br>".$row2['carid']."<br><br>".(string)$key."<br>";
+                                        echo "REVIEW <br><br><br><h1>".ucfirst($row2['carid'])."</h1><br><br>".(string)$key."<br>";
                                     }
                     
                                     ?>                  
