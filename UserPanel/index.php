@@ -36,7 +36,17 @@
 			<div class="header-nav-wrapper">
 				<div class="logo">
 					<a href="index.php"><img src="img/logo.png"></a>
+
 				</div>
+                <div class="primary-nav-wrapper">
+                    <div class="secondary-nav-wrapper">
+                        <ul class="secondary-nav">
+                            <li class="subscribe"><a href="#contact" style="color:white">Contact</a></li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
 
 				
 				
@@ -51,7 +61,9 @@
 						<div class="row" style="">
 							<div class="col-md-12 ">
 								<h1 class="wp1 text-center">Introducing The New Cruze</h1>
-                                <center><a href="#" class="btn primary wp2">Learn more</a></center>
+                               
+                                <center><a href="slider1.php?type=Sedan&brand=Chevorlet&car=Cruze" class="btn primary wp2">Learn more</a></center>
+                                
 							</div>
 						</div>
 						
@@ -64,7 +76,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h1 class="wp1 left-top">Sports Car Legends</h1>
-								<a href="#" class="btn primary wp2">Learn More</a>
+								<a href="" class="btn primary wp2">Learn More</a>
 							</div>
 						</div>
 						
@@ -77,7 +89,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h1 class="wp1">Landrover Series</h1>
-								<a href="#" class="btn primary wp2">Learn More</a>
+								<a href="slider1.php?type=SUV&brand=Land%20Rover&car=Evoque" class="btn primary wp2">Learn More</a>
 							</div>
 						</div>
 						
@@ -103,12 +115,12 @@
          
              <!--Get Review-->
         <div class="pricing__item price1">
-        <form action="overview.php" method="post">
+        <form action="overview.php" method="get">
                 <center><h2>Get Review</h2></center><br/><br/><br/>
                 <div role="form" class="forms">
                     <h2 style="font-size:20px;">Select Type</h2><br/>
                         <div class="form-group">
-                        <select class="form-control" name="first-choice4" id="first-choice4">
+                        <select class="form-control" name="first-choice4" id="first-choice4" onchange="get()">
                             <option value="" selected="">Type</option>
                             <option value="hatchback">Hatchback</option>
                             <option value="sedan">Sedan</option>
@@ -120,16 +132,7 @@
                     <h2 style="font-size:20px;">Select Brand</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice4" id="second-choice4" onchange="get_data4()">
-                           <option value="" selected="">Select Brand</option>
-                            <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
-                            mysqli_select_db($con1,"car");
-                            $query="SELECT DISTINCT `brand` FROM `car`";
-                            $result1=mysqli_query($con1,$query);
-                            while ($row1=mysqli_fetch_array($result1)){
-                        ?>
-                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
-                            <?php } ?>
+                         <option value="" selected="">Brand</option>  
                         </select>  
                       </div><br/>
                         <div class="form-group">
@@ -147,11 +150,11 @@
          <!--Find Cars-->
 
            <div class="pricing__item price1">
-            <form action="perfectcar.php" method="post">
+            <form action="mult/index.php" method="post">
             <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
-                <h2 style="font-size:20px;">Select price Limit</h2><br/>
+                <h2 style="font-size:20px;">Select Budget</h2><br/>
                 <select class="form-control" name="price-choice" id="price-choice">
-                          <option value="" selected="">Select Budget</option>
+                          <option value="" selected="">Budget</option>
                             <option value="1000000">2L-10L</option>
                             <option value="2000000">10L-20L</option>
                             <option value="4000000">20L-40L</option>
@@ -177,9 +180,10 @@
                 <h2 style="font-size:20px;">Select Brand</h2><br/>
                 <select class="form-control" name="brand-choice" id="brand-choice">
                         
-                           <option value="" selected="">Select Brand</option>
+                           <option value="" selected="">Brand</option>
+                           
                             <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
                             mysqli_select_db($con1,"car");
                             $query="SELECT DISTINCT `brand` FROM `car`";
                             $result1=mysqli_query($con1,$query);
@@ -187,6 +191,7 @@
                         ?>
                         <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
                             <?php } ?>
+                        <option value="all">All</option>
                         </select><br/><br/>
                 <div class="row">
                     <div class="col-xs-3 col-sm-3 col-md-3">
@@ -229,9 +234,9 @@
              <h2 style="font-size:20px;">Select Brand</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="first-choice3" id="first-choice3">
-                         <option value="" selected="">Select Brand</option>
+                         <option value="" selected="">Brand</option>
                             <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
                             mysqli_select_db($con1,"cardealer");
                             $query="SELECT DISTINCT `brand` FROM `cardealer`";
                             $result1=mysqli_query($con1,$query);
@@ -244,9 +249,9 @@
              <h2 style="font-size:20px;">Select State</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
-                            <option value="" selected="">Select State</option>
+                            <option value="" selected="">State</option>
                             <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
+                            $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
                             mysqli_select_db($con1,"cardealer");
                             $query="SELECT DISTINCT `state` FROM `cardealer`";
                             $result1=mysqli_query($con1,$query);
@@ -256,7 +261,7 @@
                             <?php } ?>
                         </select>  
                       </div><br/>
-             <h2 style="font-size:20px;">Select Location</h2><br/>
+             <h2 style="font-size:20px;">Location</h2><br/>
                         <div class="form-group">
                         <select class="form-control" name="third-choice3" id="third-choice3">
 
@@ -279,7 +284,7 @@
 		<hr class="half-rule" style="width: 100px;margin: 40px auto;">
     
     
-    <!-- Working Properly -->
+    <!-- Compare Section -->
     
      <div class="container-fluid">
        <form action="resultpage.php" method="post"> 
@@ -291,7 +296,7 @@
                 <span class="big">+</span><br/>
                     <div role="form" class="forms">
                         <div class="form-group">
-                        <select class="form-control" name="first-choice" id="first-choice">
+                        <select class="form-control" name="first-choice" id="first-choice" onchange="get2()">
                             <option value="" selected="">Type</option>
                             <option value="hatchback">Hatchback</option>
                             <option value="sedan">Sedan</option>
@@ -304,16 +309,8 @@
                         <div class="form-group">
                         <select class="form-control" name="second-choice" id="second-choice" onchange="get_data()">
                         
-                            <option value="" selected="">Select Brand</option>
-                            <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
-                            mysqli_select_db($con1,"car");
-                            $query="SELECT DISTINCT `brand` FROM `car`";
-                            $result1=mysqli_query($con1,$query);
-                            while ($row1=mysqli_fetch_array($result1)){
-                        ?>
-                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
-                            <?php } ?> 
+                            <option value="" selected="">Brand</option>
+
                         </select>  
                       </div>
                       <br/>
@@ -329,7 +326,7 @@
                 <span class="big">+</span><br/>
                     <div role="form" class="forms">
                         <div class="form-group">
-                        <select class="form-control" id="first-choice2" name="first-choice2">
+                        <select class="form-control" id="first-choice2" name="first-choice2" onchange="get3()">
                             <option value="" selected="">Type</option>
                             <option value="hatchback">Hatchback</option>
                             <option value="sedan">Sedan</option>
@@ -341,17 +338,7 @@
                       <br/>
                         <div class="form-group">
                         <select class="form-control" name="second-choice2" id="second-choice2" onchange="get_data2()" >
-                            
-                            <option value="" selected="">Select Brand</option>
-                            <?php
-                            $con1=mysqli_connect('localhost','root','','carhunt');
-                            mysqli_select_db($con1,"car");
-                            $query="SELECT DISTINCT `brand` FROM `car`";
-                            $result1=mysqli_query($con1,$query);
-                            while ($row1=mysqli_fetch_array($result1)){
-                        ?>
-                        <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
-                            <?php } ?>
+                          <option value="" selected="">Brand</option>
                         </select>  
                       </div>
                       <br/>
@@ -369,15 +356,15 @@
         </section>
        </form> 
     </div>
-    
+    <!--Compare section ends -->
     <hr class="half-rule" style="width: 100px;margin: 40px auto;">
     
     
 	<!-- SECTION: Footer -->
-	<footer class=bs-docs-footer>
+	<footer class=bs-docs-footer id="contact">
         <div class=container>
             <ul class=bs-docs-footer-links>
-                <li><a href='#'>GitHub</a></li>
+                <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
                 <li><a href='#'>Twitter</a></li>
                 <li><a href='#'>Facebook</a></li>
                 <li><a href='#' >About</a></li> 
@@ -500,6 +487,67 @@ get_data() populates the first box and get_data2() populates the second box -->
 
     }
 </script>
+
+<script type="text/javascript">
+
+
+    function get()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200)
+            {
+                document.getElementById("second-choice4").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "get.php?first-choice="+document.getElementById("first-choice4").value, true);
+        xhttp.send();
+        
+
+
+    }
+</script>
+
+<script type="text/javascript">
+
+
+    function get2()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200)
+            {
+                document.getElementById("second-choice").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "get.php?first-choice="+document.getElementById("first-choice").value, true);
+        xhttp.send();
+        
+
+
+    }
+</script>
+
+<script type="text/javascript">
+
+
+    function get3()
+    {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status == 200)
+            {
+                document.getElementById("second-choice2").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("GET", "get.php?first-choice="+document.getElementById("first-choice2").value, true);
+        xhttp.send();
+        
+
+
+    }
+</script>
+<!--scripts for changing checkbox image in Find your perfect car section-->
 <script>
     $(".img1").click(function(){
     if( $(this).attr('src') == "img/rc1.png" ) {
@@ -518,7 +566,7 @@ get_data() populates the first box and get_data2() populates the second box -->
 <script>
     $(".img2").click(function(){
     if( $(this).attr('src') == "img/rc2.png" ) {
-        $(".img2").attr('src', "img/cr2.png"); // Make them all red
+        $(".img2").attr('src', "img/cr2.png"); 
     }
     $(".img1").click(function(){
         $(".img2").attr('src',"img/rc2.png");
@@ -533,7 +581,7 @@ get_data() populates the first box and get_data2() populates the second box -->
 <script>
     $(".img3").click(function(){
     if( $(this).attr('src') == "img/rc3.png" ) {
-        $(".img3").attr('src', "img/cr3.png"); // Make them all red
+        $(".img3").attr('src', "img/cr3.png"); 
     }
     $(".img1").click(function(){
         $(".img3").attr('src',"img/rc3.png");
@@ -548,7 +596,7 @@ get_data() populates the first box and get_data2() populates the second box -->
 <script>
     $(".img4").click(function(){
     if( $(this).attr('src') == "img/rc4.png" ) {
-        $(".img4").attr('src', "img/cr4.png"); // Make them all red
+        $(".img4").attr('src', "img/cr4.png"); 
     }
     $(".img1").click(function(){
         $(".img4").attr('src',"img/rc4.png");
