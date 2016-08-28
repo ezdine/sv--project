@@ -87,7 +87,7 @@
 
                                 <tr><th></th><td><?php echo '<img style="max-width:100% ;height:300px" src="data:image/jpg;base64,'.$imageData.'">'; ?></td></tr>
                                 <tr><th></th><td><h1><?php echo ucfirst($row2['carid']); ?></h1></td></tr>
-                                <tr><th></th><td>INR <?php echo $row2['price']; ?></td></tr>
+                                <tr><th></th><td>INR  <?php echo $row2['price']; ?></td></tr>
                                 <tr><th></th><td><h5 style="color:#fff;margin:0 auto;">Rating</h5><br/><?php echo '<img src="data:image/png;base64,'.$rateimage1.'">'; ?></td></tr>
                                 
                                 <tr><th></th><td></td></tr>
@@ -139,7 +139,7 @@
 
 
                                 
-                                <tr><th>TORQUE</th><td><?php echo $row2["torq"];?> Nm</td></tr>
+                                <tr><th>TORQUE</th><td><?php echo $row2["torq"];?></td></tr>
                                 <tr><th>FUEL TYPE</th><td><?php echo $row2["ftype"];?></td></tr>
                                 <tr><th>FUEL CAPACITY</th><td><?php echo $row2["fcap"];?> Litres</td></tr>
                                 <tr><th>DISPLACEMENT</th><td><?php echo $row2["edisp"];?> cc</td></tr>
