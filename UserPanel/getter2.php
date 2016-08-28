@@ -1,6 +1,6 @@
 <?php
 
-$con=mysqli_connect('localhost','root','','carhunt');
+$con=mysqli_connect('localhost','root','ezdine@123','carhunt');
 $selected=mysqli_select_db($con,"cardealer");
 $brand = $_GET["first-choice3"];
 
