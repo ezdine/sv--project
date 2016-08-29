@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -22,11 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/compare/component.css"/>
     <link rel="stylesheet" type="text/css" href="css/styled.css"/>
-    <link rel="stylesheet" type="text/css" href="css/nouislider.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/vicons-font.css"/>
-    <script src="js/nouislider.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
-    <script src="js/wNumb.js"></script>
 
 </head>
 
@@ -62,7 +59,7 @@
 							<div class="col-md-12 ">
 								<h1 class="wp1 text-center">Introducing The New Cruze</h1>
                                
-                                <center><a href="slider1.php?type=Sedan&brand=Chevorlet&car=Cruze" class="btn primary wp2">Learn more</a></center>
+                                <center><a href="slider1.php?type=sedan&brand=chevorlet&car=cruze" class="btn primary wp2">Learn more</a></center>
                                 
 							</div>
 						</div>
@@ -89,7 +86,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h1 class="wp1">Landrover Series</h1>
-								<a href="slider1.php?type=SUV&brand=Land%20Rover&car=Evoque" class="btn primary wp2">Learn More</a>
+								<a href="slider1.php?type=suv&brand=land%20rover&car=evoque" class="btn primary wp2">Learn More</a>
 							</div>
 						</div>
 						
@@ -360,6 +357,36 @@
     <hr class="half-rule" style="width: 100px;margin: 40px auto;">
     
     
+    <!--Recommendation Starts-->
+    
+    <div class="container">
+        <h2 class="text-center">Top Recomendations</h2><br/>
+        <div class="row">
+        
+        <?php
+        $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
+        mysqli_select_db($con1,"car");
+       
+        $query="SELECT * FROM `car` order by `views` desc limit 3 ";
+        $result1=mysqli_query($con1,$query);
+        while ($row1=mysqli_fetch_array($result1)){
+        $img1=$row1['image_url'];
+        $imageData = base64_encode(file_get_contents($img1));
+        ?>
+        		<div class="col-xs-12 col-sm-12 col-md-4">
+                <?php echo '<img style="max-width:100% ;height:300px" src="data:image/jpg;base64,'.$imageData.'">'; ?>
+                <h3 class="text-center" style="color:#fff"><?php echo ucfirst($row1['carid']); ?></h3>
+           
+          
+        </div>
+        <?php } ?>
+         </div>
+    </div>
+    
+    <!--Recommendation Ends-->
+    
+    <hr class="half-rule" style="width: 100px;margin: 40px auto;">
+    
 	<!-- SECTION: Footer -->
 	<footer class=bs-docs-footer id="contact">
         <div class=container>
@@ -371,6 +398,8 @@
             </ul>
         </div>
     </footer>
+    
+    
 	<!-- END SECTION: Footer -->
 	<!-- JS CDNs -->
 	<script src="js/jquery.min.js"></script>
