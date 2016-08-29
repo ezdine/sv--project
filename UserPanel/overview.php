@@ -53,6 +53,8 @@
                         $selected=mysqli_select_db($con,"car");
                 
                         $query1="SELECT * FROM `car` WHERE `brand`='$brand' AND `type`='$type' AND `carid`='$car'";
+                        $query2="UPDATE `car` SET `views` = `views` + 1 WHERE `brand`='$brand' AND `type`='$type' AND `carid`='$car'";
+                        mysqli_query($con, $query2);
                         $result1=mysqli_query($con, $query1);
                         $row2=mysqli_fetch_assoc($result1);
                         
