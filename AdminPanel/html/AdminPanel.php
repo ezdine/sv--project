@@ -4,12 +4,8 @@ if(!isset($_SESSION['user'] ))
 {
 	header("Location: login.html");
 }
-if(!empty($_SESSION['msg']))
-{
-	echo '<script type="text/javascript">alert("Insertion Successful");window.history.go(-1);</script>';
-   unset($_SESSION['msg']);
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -151,27 +147,7 @@ if(!empty($_SESSION['msg']))
 				</script>
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
-						</button>
-
-						<button class="btn btn-info">
-							<i class="ace-icon fa fa-pencil"></i>
-						</button>
-
-						<!-- #section:basics/sidebar.layout.shortcuts -->
-						<button class="btn btn-warning">
-							<i class="ace-icon fa fa-users"></i>
-						</button>
-
-						<button class="btn btn-danger">
-							<i class="ace-icon fa fa-cogs"></i>
-						</button>
-
-						<!-- /section:basics/sidebar.layout.shortcuts -->
-					</div>
-
+					
 					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
 						<span class="btn btn-success"></span>
 
@@ -186,37 +162,23 @@ if(!empty($_SESSION['msg']))
 				<ul class="nav nav-list">
 					
 					<li class="">
-						<a href="AdminPanel.php">
-							<i class="menu-icon fa fa-caret-right"></i>
-							<span class="menu-text"> Dashboard </span>
+						<a href="AddCarpage.php">
+							<i class="menu-icon fa fa-tachometer"></i>
+							<span class="menu-text"> Add Car </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
-
 					<li class="">
-						<a href="AddCarpage.php">
-							<i class="menu-icon fa fa-caret-right"></i>
-							<span class="menu-text"> Add Car </span>
+						<a href="AddDealerpage.php">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> Add Dealer </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
 
 					
-				</a>
-				</li>
-
-				<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
-							<span class="menu-text">
-								Add Dealer
-							</span>
-
-				</a>
-				</li>
-
 				
 
 				</ul>
@@ -250,7 +212,7 @@ if(!empty($_SESSION['msg']))
 						<!-- /section:settings.box -->
 						<div class="page-header">
 							<h1>
-								Add Dealer Details
+								DASHBOARD
 								
 							</h1>
 						</div><!-- /.page-header -->
@@ -258,68 +220,15 @@ if(!empty($_SESSION['msg']))
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<form class="form-horizontal" role="form" action="AddDealerDB.php" method="post">
-									<!-- #section:elements.form -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Dealer </label>
-
-										<div class="col-sm-9">
-											<input type="text" name="Dname" class="col-xs-10 col-sm-5" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Brand </label>
-										<div class="col-sm-9">
-											<input type="text" name="Dbrand" class="col-xs-10 col-sm-5" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> State </label>
-										<div class="col-sm-9">
-											<input type="text" name="Dstate" class="col-xs-10 col-sm-5" />
-										</div>
-									</div>
-
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Location </label>
-										<div class="col-sm-9">
-											<input type="text" name="Dlocation" class="col-xs-10 col-sm-5"  />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Contact </label>
-										<div class="col-sm-9">
-											<input type="text" name="Dcontact" class="col-xs-10 col-sm-5" maxlength="10" />
-										</div>
-									</div>
-
-									
+								
 
 									<!-- /section:elements.form -->
 									
 
 									
-									<div class="clearfix form-actions">
-										<div class="col-md-offset-3 col-md-9">
-											
-											<button class="btn" type="submit" onclick="AddCarDB.php">
-												<i class="ace-icon fa fa-check bigger-110"></i>
-												Submit
-											</button>
-											
-											&nbsp; &nbsp; &nbsp;
-											<button class="btn" type="reset">
-												<i class="ace-icon fa fa-undo bigger-110"></i>
-												Reset
-											</button>
-										</div>
-									</div>
-									</form>
 
+										
+									</div>
 
 
 									

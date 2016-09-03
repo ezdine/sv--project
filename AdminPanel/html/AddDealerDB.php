@@ -8,7 +8,7 @@ $d_contact=$_POST['Dcontact'];
 
 
 
-$con=mysqli_connect('localhost','root','','carhunt');
+$con=mysqli_connect('localhost','root','ezdine@123','carhunt');
 if(!$con)
 	{
 		echo "connection failed";

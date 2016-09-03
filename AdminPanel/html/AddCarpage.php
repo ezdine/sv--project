@@ -151,26 +151,7 @@ if(!empty($_SESSION['msg']))
 				</script>
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
-						</button>
-
-						<button class="btn btn-info">
-							<i class="ace-icon fa fa-pencil"></i>
-						</button>
-
-						<!-- #section:basics/sidebar.layout.shortcuts -->
-						<button class="btn btn-warning">
-							<i class="ace-icon fa fa-users"></i>
-						</button>
-
-						<button class="btn btn-danger">
-							<i class="ace-icon fa fa-cogs"></i>
-						</button>
-
-						<!-- /section:basics/sidebar.layout.shortcuts -->
-					</div>
+				
 
 					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
 						<span class="btn btn-success"></span>
@@ -276,6 +257,13 @@ if(!empty($_SESSION['msg']))
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Model </label>
 										<div class="col-sm-9">
 											<input type="text" name="carmodel" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Usage </label>
+										<div class="col-sm-9">
+											<input type="text" name="usage" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>
 
@@ -388,6 +376,13 @@ if(!empty($_SESSION['msg']))
 											<input type="text" name="img_url" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>	
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Video URL </label>
+										<div class="col-sm-9">
+											<input type="text" name="video_url" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
 
 									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Rating (Use PNG images) </label>
