@@ -224,7 +224,7 @@ include_once("scripts.js");
                             <center><h2 style="font-size:35px;">Find Dealer</h2></center><br/><br/><br/>
                      <h2 style="font-size:20px;">Select Brand</h2><br/>
                                 <div class="form-group">
-                                <select class="form-control" name="first-choice3" id="first-choice3">
+                                <select class="form-control" name="first-choice3" id="first-choice3" onchange="get_state()">
                                  <option value="" selected="">Brand</option>
                                     <?php
                                     $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
@@ -240,16 +240,8 @@ include_once("scripts.js");
                      <h2 style="font-size:20px;">Select State</h2><br/>
                                 <div class="form-group">
                                 <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
+                                    
                                     <option value="" selected="">State</option>
-                                    <?php
-                                    $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
-                                    mysqli_select_db($con1,"cardealer");
-                                    $query="SELECT DISTINCT `state` FROM `cardealer`";
-                                    $result1=mysqli_query($con1,$query);
-                                    while ($row1=mysqli_fetch_array($result1)){
-                                ?>
-                                <option value="<?php echo $row1['state'];?> "> <?php echo ucfirst($row1['state']);?> </option>
-                                    <?php } ?>
                                 </select>  
                               </div><br/>
                      <h2 style="font-size:20px;">Location</h2><br/>
