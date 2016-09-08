@@ -11,11 +11,12 @@ include_once("scripts.js");
 
         <head>
         	<meta charset="utf-8">
+            
         	<meta http-equiv="X-UA-Compatible" content="IE=edge">
         	<title>CarHunt|Home</title>
         	<meta name="description" content="">
         	<meta name="keywords" content="" />
-        	<meta name="author" content="" />
+        	<meta name="author" content="Infinity" />
         	<meta name="viewport" content="width=device-width, initial-scale=1">
         	<link rel="stylesheet" href="css/bootstrap.min.css" />
         	<link rel="stylesheet" href="css/animate.min.css">
@@ -40,8 +41,8 @@ include_once("scripts.js");
                         <div class="primary-nav-wrapper">
                             <div class="secondary-nav-wrapper">
                                 <ul class="secondary-nav">
+                                    <li class="subscribe"><a href="#ecww-widgetwrapper" style="color:white">EMI Calculator</a></li>
                                     <li class="subscribe"><a href="#contact" style="color:white">Contact</a></li>
-                                    
                                 </ul>
                             </div>
                             
@@ -86,8 +87,8 @@ include_once("scripts.js");
         				<div class="hero-bg">
         					<div class="container">
         						<div class="row">
-        							<div class="col-md-12" style="position:relative;top:-220px;left:-20px;" >
-        								<h1 class="wp1">Landrover Series</h1>
+        							<div class="col-md-12" >
+        								<h1 class="wp1">Evoque</h1>
         								<a href="slider1.php?type=suv&brand=land%20rover&car=evoque" class="btn primary wp2">Learn More</a>
         							</div>
         						</div>
@@ -187,8 +188,8 @@ include_once("scripts.js");
                                    
                                     <?php
                                     $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
-                                    mysqli_select_db($con1,"car");
-                                    $query="SELECT DISTINCT `brand` FROM `car`";
+                                    mysqli_select_db($con1,"car"); 
+                                    $query="SELECT DISTINCT `brand` FROM `car` ORDER BY `brand`";
                                     $result1=mysqli_query($con1,$query);
                                     while ($row1=mysqli_fetch_array($result1)){
                                 ?>
@@ -196,20 +197,7 @@ include_once("scripts.js");
                                     <?php } ?>
                                 <option value="all">All</option>
                                 </select><br/><br/>
-                        <div class="row">
-                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                <label><input type="radio" name="rb" value="daily" /><img data-toggle="tooltip" title="Daily Usage" data-placement="bottom" src="img/rc1.png" class="img1"></label><center></center>
-                            </div>
-                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                <label><input type="radio" name="rb" value="weekend" /><img data-toggle="tooltip" title="Weekend Trips" data-placement="bottom" src="img/rc2.png" class="img2"></label>
-                            </div>
-                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                <label><input type="radio" name="rb"  value="high" /><img data-toggle="tooltip" title="Permormance" data-placement="bottom"  src="img/rc3.png" class="img3"></label>
-                            </div>
-                            <div class="col-xs-3 col-sm-3 col-md-3">
-                                <label><input type="radio" name="rb"  value="utility" /><img data-toggle="tooltip" title="Utility" data-placement="bottom"  src="img/rc4.png" class="img4"></label>
-                            </div>
-                        </div>
+                        
                         <style>
                             label > input{ /* HIDE RADIO */
                             visibility: hidden; /* Makes input not-clickable */
@@ -241,7 +229,7 @@ include_once("scripts.js");
                                     <?php
                                     $con1=mysqli_connect('localhost','root','ezdine@123','carhunt');
                                     mysqli_select_db($con1,"cardealer");
-                                    $query="SELECT DISTINCT `brand` FROM `cardealer`";
+                                    $query="SELECT DISTINCT `brand` FROM `cardealer` order by `brand`";
                                     $result1=mysqli_query($con1,$query);
                                     while ($row1=mysqli_fetch_array($result1)){
                                 ?>
@@ -427,8 +415,15 @@ echo $row1['brand1'];?>&third-choice=<?php echo $row1['car1'];?>&first-choice2=<
                 <?php } ?>
                  </div>
             </div>
-            
+<hr class="half-rule" style="width: 100px;margin: 40px auto;">            
             <!--top compare Ends-->
+            <!-- EMI Calculator Widget START -->
+            <script src="http://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+            <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;background:transparent;">
+                <div id="ecww-widget" style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;"></div>
+                    <div id="ecww-more" style="background:#333;font:normal 13px/1 Helvetica, Arial, Verdana, Sans-serif;padding:10px 0;color:#FFF;text-align:center;width:100%;clear:both;margin:0;clear:both;float:left;">
+                </div>
+            </div><!-- EMI Calculator Widget END -->
 
                 <hr class="half-rule" style="width: 100px;margin: 40px auto;">
             
@@ -463,80 +458,8 @@ echo $row1['brand1'];?>&third-choice=<?php echo $row1['car1'];?>&first-choice2=<
 
 
 
-        
-
-       
-        <!--scripts for changing checkbox image in Find your perfect car section-->
-        <script>
-            $(".img1").click(function(){
-            if( $(this).attr('src') == "img/rc1.png" ) {
-                $(".img1").attr('src', "img/cr1.png"); 
-            }
-            $(".img2").click(function(){
-                $(".img1").attr('src',"img/rc1.png");
-            })
-            $(".img3").click(function(){
-                $(".img1").attr('src',"img/rc1.png");
-            })
-            $(".img4").click(function(){
-                $(".img1").attr('src',"img/rc1.png");
-            })
-        })</script>
-        <script>
-            $(".img2").click(function(){
-            if( $(this).attr('src') == "img/rc2.png" ) {
-                $(".img2").attr('src', "img/cr2.png"); 
-            }
-            $(".img1").click(function(){
-                $(".img2").attr('src',"img/rc2.png");
-            })
-            $(".img3").click(function(){
-                $(".img2").attr('src',"img/rc2.png");
-            })
-            $(".img4").click(function(){
-                $(".img2").attr('src',"img/rc2.png");
-            })
-        })</script>
-        <script>
-            $(".img3").click(function(){
-            if( $(this).attr('src') == "img/rc3.png" ) {
-                $(".img3").attr('src', "img/cr3.png"); 
-            }
-            $(".img1").click(function(){
-                $(".img3").attr('src',"img/rc3.png");
-            })
-            $(".img2").click(function(){
-                $(".img3").attr('src',"img/rc3.png");
-            })
-            $(".img4").click(function(){
-                $(".img3").attr('src',"img/rc3.png");
-            })
-        })</script>
-        <script>
-            $(".img4").click(function(){
-            if( $(this).attr('src') == "img/rc4.png" ) {
-                $(".img4").attr('src', "img/cr4.png"); 
-            }
-            $(".img1").click(function(){
-                $(".img4").attr('src',"img/rc4.png");
-            })
-            $(".img2").click(function(){
-                $(".img4").attr('src',"img/rc4.png");
-            })
-            $(".img3").click(function(){
-                $(".img4").attr('src',"img/rc4.png");
-            })
-        })</script>
-
-
            
-           
-
-
-
-
-
-        </body>
+       </body>
 
         </html>
 
