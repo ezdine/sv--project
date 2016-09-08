@@ -92,6 +92,27 @@
             }
         </script>
 
+
+         <script type="text/javascript">
+
+
+            function get_state()
+            {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function(){
+                    if(xhttp.readyState == 4 && xhttp.status == 200)
+                    {
+                        document.getElementById("second-choice3").innerHTML = xhttp.responseText;
+                    }
+                };
+                xhttp.open("GET", "getter3.php?first-choice3="+document.getElementById("first-choice3").value, true);
+                xhttp.send();
+                
+
+
+            }
+        </script>
+
         <!--Ajax script for populating the car models dropdown list on get review section-->
         <script type="text/javascript">
 
