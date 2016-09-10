@@ -1,3 +1,4 @@
+     <!--Ajax scripts -->
      <!--Enabling perser button in find perfect car container -->
         <script type="text/javascript">
          function enablebtn()

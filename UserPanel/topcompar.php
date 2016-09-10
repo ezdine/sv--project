@@ -2,7 +2,15 @@
         <!DOCTYPE html>
         <html lang="en" class="no-js">
         	<head>
-            <meta charset="utf-8">
+                <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+                <link rel="icon" href="favicon.ico" type="image/x-icon">
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <title>CarHunt</title>
+                <meta name="description" content="">
+                <meta name="keywords" content="" />
+                <meta name="author" content="Infinity" />
         		<link rel="stylesheet" type="text/css" href="overview/css/tabs.css" />
                 <link rel="stylesheet" type="text/css" href="overview/css/styled.css"/>
                 <link rel="stylesheet" type="text/css" href="overview/css/bootstrap.css"/>
@@ -121,10 +129,10 @@
                                 <div class="col-sm-6">
                                     <table class="">
                                        
-                                        <tbody>
+                                        <tbody>class="img-responsive"
 
 
-                                    <tr><th></th><td><?php echo '<img style="max-width:100% ;height:300px" src="data:image/jpg;base64,'.$imageData2.'">'; ?></td></tr>
+                                    <tr><th></th><td><?php echo '<img class="img-responsive" src="data:image/jpg;base64,'.$imageData2.'">'; ?></td></tr>
                                     <tr><th></th><td><h1><?php echo ucfirst($row2['carid']); ?></h1></td></tr>
                                     <tr><th></th><td>INR  <?php echo $row2['price']; ?></td></tr>
                                     <tr><th></th><td><h5 style="color:#fff;margin:0 auto;">Rating</h5><br/><?php echo '<img src="data:image/png;base64,'.$rateimage2.'">'; ?></td></tr>

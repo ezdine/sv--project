@@ -1,0 +1,12 @@
+.name-price{
+    color:#fff;
+    padding-top: 5em;
+}
+th,td{
+    margin: 3em;
+    text-align: left;
+    height: 3em;
+}
+.table-con{
+    padding: 3em;
+}

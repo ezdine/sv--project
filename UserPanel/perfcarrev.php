@@ -1,4 +1,4 @@
-    <!--Reviews page for cars displayed on the slider-->
+        <!--Reviews Page for cars selected from perfect car section  -->
         <!DOCTYPE html>
         <html lang="en" class="no-js">
         	<head>
@@ -11,6 +11,7 @@
                 <meta name="description" content="">
                 <meta name="keywords" content="" />
                 <meta name="author" content="Infinity" />
+                <meta charset="utf-8">
         		<link rel="stylesheet" type="text/css" href="overview/css/tabs.css" />
                 <link rel="stylesheet" type="text/css" href="overview/css/styled.css"/>
                 <link rel="stylesheet" type="text/css" href="overview/css/bootstrap.css"/>
@@ -19,27 +20,10 @@
           		<script src="overview/js/modernizr.custom.js"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         	</head>
-        	<body style="background:#414A52">
-            <div class="container-fluid">
-            <div class="row">
-                <div class="header-nav-wrapper">
-                    <div class="logo">
-                        <a href="index.php"><img src="img/logo.png"></a>
-                    </div>
-                    <div class="primary-nav-wrapper">
-                        <div class="secondary-nav-wrapper">
-                            <ul class="secondary-nav">
-                                <li class="subscribe"><a href="#contact" style="color:white">Contact</a></li>
-                                
-                            </ul>
-                        </div>
-                        
-                    </div>              
-                </div>
-            </div>
-        </div>
+        	<body style="background:#2a2b30">
+            
                 
-        			<section class="container" style="border:2px solid #1F1F1F;background:#1F1F1F;border-radius:20px;padding:3em; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+        			<section >
         				<div class="tabs tabs-style-iconfall">
         					<nav>
         						<ul>
@@ -176,18 +160,7 @@
         			</section>
                     <hr class="half-rule" style="width: 100px;margin: 40px auto;">
 
-        <!-- SECTION: Footer -->
-        <footer class="bs-docs-footer" id="contact">
-            <div class=container>
-                <ul class=bs-docs-footer-links>
-                    <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
-                    <li><a href='#'>Twitter</a></li>
-                    <li><a href='#'>Facebook</a></li>
-                    <li><a href='#' >About</a></li> 
-                </ul>
-            </div>
-        </footer>
-        <!-- END SECTION: Footer -->
+        
                 <script src="overview/js/cbpFWTabs.js"></script>
         		<script>
         			(function() {

@@ -11,8 +11,9 @@ include_once("scripts.js");
 
         <head>
         	<meta charset="utf-8">
-            
-        	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+            <link rel="icon" href="favicon.ico" type="image/x-icon">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
         	<title>CarHunt|Home</title>
         	<meta name="description" content="">
         	<meta name="keywords" content="" />
@@ -28,6 +29,7 @@ include_once("scripts.js");
             <link rel="stylesheet" type="text/css" href="css/styled.css"/>
             <link rel="stylesheet" type="text/css" href="css/vicons-font.css"/>
         	<script src="js/modernizr.custom.js"></script>
+
 
         </head>
 
@@ -112,8 +114,9 @@ include_once("scripts.js");
              <section class="compare-section bg-1">
                  
                  <div class="pricing compare-inner">
-                 
+                 <div class="row">
                      <!--Get Review-->
+                     <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
                 <div class="pricing__item price1">
                 <form action="overview.php" method="get">
                         <center><h2>Get Review</h2></center><br/><br/><br/>
@@ -148,12 +151,14 @@ include_once("scripts.js");
                         </div>
                         </form>
                     </div>
+                    </div>
                  <!--Get Review ends-->
-                 <!--Find Cars-->
 
-                   <div class="pricing__item price1">
-                    <form action="mult/index.php" method="post">
-                    <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
+                 <!--Find Cars-->
+                    <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
+                        <div class="pricing__item price1">
+                        <form action="mult/index.php" method="post">
+                            <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
                         <h2 style="font-size:20px;">Select Budget</h2><br/>
                         <select class="form-control" name="price-choice" id="price-choice">
                                   <option value="" selected="">Budget</option>
@@ -197,28 +202,16 @@ include_once("scripts.js");
                                     <?php } ?>
                                 <option value="all">All</option>
                                 </select><br/><br/>
-                        
-                        <style>
-                            label > input{ /* HIDE RADIO */
-                            visibility: hidden; /* Makes input not-clickable */
-                            position: absolute; /* Remove input from document flow */
-                            }
-                            label > input + img{ /* IMAGE STYLES */
-                                cursor:pointer;
-                                border:2px solid transparent;
-                            }
-
-
-                        </style>
                         <center><button class="button button--shikoba button--round-l" name="perser" id="perser" disabled="true"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
-                    </form>
+                        </form>
+                    </div>
                     </div>
                  <!--Find Cars ends-->
                  
                 
                  
                  <!--Find Dealer-->
-                     
+                <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
                 <div class="pricing__item price1 ">
                 <form action="finddealerpage.php" method="post">
                             <center><h2 style="font-size:35px;">Find Dealer</h2></center><br/><br/><br/>
@@ -257,7 +250,9 @@ include_once("scripts.js");
                     <center><button class="button button--shikoba button--round-l" disabled="true" name="search" id="search"><i class="button__icon icon icon-search" ></i><span>Search</span></button></center><br/>
                     </form>
                 </div>
+                </div>
                  <!--Find Dealer ends-->
+                 </div>
                  </div>
              </section>
         </div>
