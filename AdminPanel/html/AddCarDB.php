@@ -32,7 +32,7 @@ if(!$con)
 	elseif((!empty($fcap))&&(!empty($ftype))&&(!empty($seat))&&(!empty($transtype))&&(!empty($edisp))&&(!empty($topspeed))&&(!empty($edesc))&&(!empty($etype))&&(!empty($car_mod))&&(!empty($car_type))&&(!empty($car_brand))&&(!empty($car_price))&&(!empty($rURL))&&(!empty($iURL))&&(!empty($car_mile))&&(!empty($car_torq))&&(!empty($c0to100)))
 	{
 	  mysqli_select_db($con,"car");
-      $query1="INSERT INTO car  (carid,type,brand,price,cusage,rating,video,review_url,image_url,mileage,torq,c0to100,fcap,ftype,seat,transtype,edisp,topspeed,edesc,etype) VALUES ('$car_mod','$car_type','$car_brand','$car_price','$usage','$rat','$video_url','$rURL','$iURL','$car_mile','$car_torq','$c0to100','$fcap','$ftype','$seat','$transtype','$edisp','$topspeed','$edesc','$etype')";
+      $query1="INSERT INTO car  (carid,type,brand,price,cusage,rating,video,review_url,image_url,mileage,torq,c0to100,fcap,ftype,seat,transtype,edisp,topspeed,edesc,etype) VALUES ('$car_mod','$car_type','$car_brand','$car_price','$usage','$rat','$video_url','$rURL','$iURL',$car_mile,'$car_torq','$c0to100','$fcap','$ftype','$seat','$transtype','$edisp','$topspeed','$edesc','$etype')";
       if(mysqli_query($con,$query1))
       { 
       	session_start();

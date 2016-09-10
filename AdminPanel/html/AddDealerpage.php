@@ -257,24 +257,32 @@ if(!empty($_SESSION['msg']))
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> State </label>
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Address </label>
 										<div class="col-sm-9">
-											<input type="text" name="Dstate" class="col-xs-10 col-sm-5" />
+											<input type="text" name="Daddress" class="col-xs-10 col-sm-5"  />
 										</div>
 									</div>
 
+									
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Location </label>
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> District </label>
 										<div class="col-sm-9">
 											<input type="text" name="Dlocation" class="col-xs-10 col-sm-5"  />
 										</div>
 									</div>
 
 									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> State </label>
+										<div class="col-sm-9">
+											<input type="text" name="Dstate" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Contact </label>
 										<div class="col-sm-9">
-											<input type="text" name="Dcontact" class="col-xs-10 col-sm-5" maxlength="10" />
+											<input type="text" name="Dcontact" class="col-xs-10 col-sm-5" maxlength="13" />
 										</div>
 									</div>
 
