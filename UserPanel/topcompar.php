@@ -116,7 +116,7 @@
                                         <tbody>
 
 
-                                    <tr><th></th><td><?php echo '<img style="max-width:100% ;height:300px" src="data:image/jpg;base64,'.$imageData1.'">'; ?></td></tr>
+                                    <tr><th></th><td><?php echo '<img class="img-responsive" src="data:image/jpg;base64,'.$imageData1.'">'; ?></td></tr>
                                     <tr><th></th><td><h1><?php echo ucfirst($row1['carid']); ?></h1></td></tr>
                                     <tr><th></th><td>INR  <?php echo $row1['price']; ?></td></tr>
                                     <tr><th></th><td><h5 style="color:#fff;margin:0 auto;">Rating</h5><br/><?php echo '<img src="data:image/png;base64,'.$rateimage1.'">'; ?></td></tr>
@@ -129,7 +129,7 @@
                                 <div class="col-sm-6">
                                     <table class="">
                                        
-                                        <tbody>class="img-responsive"
+                                        <tbody>
 
 
                                     <tr><th></th><td><?php echo '<img class="img-responsive" src="data:image/jpg;base64,'.$imageData2.'">'; ?></td></tr>
@@ -222,7 +222,7 @@
                 <ul class=bs-docs-footer-links>
                     <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
                     <li><a href='#'>Twitter</a></li>
-                    <li><a href='#'>Facebook</a></li>
+                    <li><a href='https://www.facebook.com/gautu.root/videos/526369390891491'>Facebook</a></li>
                     <li><a href='#' >About</a></li> 
                 </ul>
             </div>

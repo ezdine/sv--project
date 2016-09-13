@@ -84,6 +84,8 @@
                                         }
                                      $html->save();
                                     
+                                    
+                           
 
                                 ?>
                     
@@ -101,8 +103,7 @@
                                     <tr><th></th><td>INR  <?php echo $row2['price']; ?></td></tr>
                                     <tr><th></th><td><h5 style="color:#fff;margin:0 auto;">Rating</h5><br/><?php echo '<img src="data:image/png;base64,'.$rateimage1.'">'; ?></td></tr>
                                     
-                                    <tr><th></th><td></td></tr>
-
+                                    
                                
                                             
                                         </tbody>
@@ -110,6 +111,26 @@
                                     </div>
                                 <div class="col-sm-6">
                                     <iframe style="max-width:100%;"  width="560" height="300" src="<?php echo $row2['video']?>" frameborder="0" allowfullscreen></iframe>
+
+                                    <br><br><br><br><br><br><?php $p=$html->find('div.article');
+													        $g=strripos($p[0],"verdict");
+
+
+																if (is_int($g))
+																{
+																	
+																	$s=substr($p[0],strripos($p[0],"verdict"));
+																	$h=substr($s,0,strpos($s, "<!--Author name-->"));
+																	echo $h;
+																
+																}
+															else
+																{
+																	echo " ";
+																}	
+
+													?>
+
                                    
 
                                 </div>
@@ -188,7 +209,7 @@
                 <ul class=bs-docs-footer-links>
                     <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
                     <li><a href='#'>Twitter</a></li>
-                    <li><a href='#'>Facebook</a></li>
+                    <li><a href='https://www.facebook.com/gautu.root/videos/526369390891491'>Facebook</a></li>
                     <li><a href='#' >About</a></li> 
                 </ul>
             </div>

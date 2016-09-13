@@ -73,6 +73,14 @@
                                     $rating1=$row2['rating'];           
                                     $imageData = base64_encode(file_get_contents($img1));//encoding the scraped image in base64 format.
                                     $rateimage1=base64_encode(file_get_contents($rating1));  
+                                    $url1=$row2['review_url'];
+                                    $html=file_get_html($url1);//scraping contents from the url.
+                                     //Remove image tags from scraped contents
+                                     foreach($html ->find('img') as $item) 
+                                        {
+                                            $item->outertext = '';
+                                        }
+                                     $html->save();
 
                                 ?>
                     
@@ -98,12 +106,32 @@
                                     </div>
                                 <div class="col-sm-6">
                                     <iframe style="max-width:100%;"  width="560" height="300" src="<?php echo $row2['video']?>" frameborder="0" allowfullscreen></iframe>
+                                      <br><br><br><br><br><br><?php $p=$html->find('div.article');
+                                                            $g=strripos($p[0],"verdict");
+
+
+                                                                if (is_int($g))
+                                                                {
+                                                                    
+                                                                    $s=substr($p[0],strripos($p[0],"verdict"));
+                                                                    $h=substr($s,0,strpos($s, "<!--Author name-->"));
+                                                                    echo $h;
+                                                                
+                                                                }
+                                                            else
+                                                                {
+                                                                    echo " ";
+                                                                }   
+
+                                                    ?>  
                                 </div>
+
                                     </div>
                                 </div>
                   
                                              
                                 
+
                                 </section>
         						<section id="section-iconfall-2">
                                 
@@ -182,7 +210,7 @@
                 <ul class=bs-docs-footer-links>
                     <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
                     <li><a href='#'>Twitter</a></li>
-                    <li><a href='#'>Facebook</a></li>
+                    <li><a href='https://www.facebook.com/gautu.root/videos/526369390891491'>Facebook</a></li>
                     <li><a href='#' >About</a></li> 
                 </ul>
             </div>

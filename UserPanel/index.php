@@ -119,11 +119,11 @@ include_once("scripts.js");
                      <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
                 <div class="pricing__item price1">
                 <form action="overview.php" method="get">
-                        <center><h2>Get Review</h2></center><br/><br/><br/>
+                        <center><h2>Get Review</h2></center>
                         <div role="form" class="forms">
-                            <h2 style="font-size:20px;">Select Type</h2><br/>
-                                <div class="form-group">
-                                <select class="form-control" name="first-choice4" id="first-choice4" onchange="get()">
+                            <h2 style="font-size:20px;margin-top:2em;">Select Type</h2>
+                                
+                                <select class="form-control" name="first-choice4" id="first-choice4" onchange="get()" style="margin-top:1em;">
                                     <option value="" selected="">Type</option>
                                     <option value="hatchback">Hatchback</option>
                                     <option value="convertible">Convertible</option>
@@ -133,21 +133,20 @@ include_once("scripts.js");
                                     <option value="muv">MUV</option>
                                     <option value="coupe">Coupe</option>
                                 </select>  
-                              </div><br/>
-                            <h2 style="font-size:20px;">Select Brand</h2><br/>
-                                <div class="form-group">
+                              
+                            <h2 style="font-size:20px;margin-top:1.5em;">Select Brand</h2>
+                                <div class="form-group" style="margin-top:1em;">
                                 <select class="form-control" name="second-choice4" id="second-choice4" onchange="get_data4()">
                                  <option value="" selected="">Brand</option>  
                                 </select>  
-                              </div><br/>
-                                <div class="form-group">
-                                <h2 style="font-size:20px;">Select Car</h2><br/>
+                              </div>
+                                <h2 style="font-size:20px;margin-top:1.5em;">Select Car</h2>
+                                <div class="form-group" style="margin-top:1em;">
                                 <select class="form-control" id="third-choice4" name="third-choice4">
                                     <option value="" selected="">Car Name</option>
-                                    
                                 </select>  
-                                </div><br/>
-                            <center><button class="button button--shikoba button--round-l" disabled="true" name="review" id="review"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center><br/>
+                                </div>
+                            <center><button style="margin-top:1.5em;" class="button button--shikoba button--round-l" disabled="true" name="review" id="review"><i class="button__icon icon icon-forward"></i><span>Go</span></button></center>
                         </div>
                         </form>
                     </div>
@@ -158,9 +157,9 @@ include_once("scripts.js");
                     <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
                         <div class="pricing__item price1">
                         <form action="mult/index.php" method="post">
-                            <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center><br/>
-                        <h2 style="font-size:20px;">Select Budget</h2><br/>
-                        <select class="form-control" name="price-choice" id="price-choice">
+                            <center><h2 style="font-size:2em;">Get Your Perfect Car</h2></center>
+                        <h2 style="font-size:20px;margin-top:1em;">Select Budget</h2>
+                        <select class="form-control" name="price-choice" id="price-choice" style="margin-top:1em;">
                                   <option value="" selected="">Budget</option>
                                     <option value="1000000">2L-10L</option>
                                     <option value="2000000">10L-20L</option>
@@ -170,13 +169,13 @@ include_once("scripts.js");
                                     <option value="10000000">80L-1Cr</option>  
                                     <option value="30000000">1Cr-3Cr</option> 
                                     <option value="80000000">Above 3Cr</option>  
-                                </select><br/><br/>
+                                </select>
                         
                         
                         
                         
-                        <h2 style="font-size:20px;">Select Type</h2><br/>
-                        <select class="form-control" name="type-choice" id="type-choice">
+                        <h2 style="font-size:20px;margin-top:1.5em;">Select Type</h2>
+                        <select class="form-control" name="type-choice" id="type-choice" style="margin-top:1em;">
                                   <option value="" selected="">Type</option>
                                     <option value="hatchback">Hatchback</option>
                                     <option value="convertible">Convertible</option>
@@ -185,9 +184,9 @@ include_once("scripts.js");
                                     <option value="suv">SUV</option>
                                     <option value="muv">MUV</option>
                                     <option value="coupe">Coupe</option>  
-                                </select><br/><br/>
-                        <h2 style="font-size:20px;">Select Brand</h2><br/>
-                        <select class="form-control" name="brand-choice" id="brand-choice" onchange="enablebtn()">
+                                </select>
+                        <h2 style="font-size:20px;margin-top:1.5em;">Select Brand</h2>
+                        <select class="form-control" name="brand-choice" id="brand-choice" onchange="enablebtn()" style="margin-top:1em;">
                                 
                                    <option value="" selected="">Brand</option>
                                    
@@ -201,8 +200,8 @@ include_once("scripts.js");
                                 <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
                                     <?php } ?>
                                 <option value="all">All</option>
-                                </select><br/><br/>
-                        <center><button class="button button--shikoba button--round-l" name="perser" id="perser" disabled="true"><i class="button__icon icon icon-search"></i><span>Search</span></button></center><br/>
+                                </select>
+                        <center><button style="margin-top:2em;" class="button button--shikoba button--round-l" name="perser" id="perser" disabled="true"><i class="button__icon icon icon-search"></i><span>Search</span></button></center>
                         </form>
                     </div>
                     </div>
@@ -214,9 +213,9 @@ include_once("scripts.js");
                 <div class="col-xs-12 col-sm-12 col-md-4" style="height:35em;margin-top:1em;margin-bottom:1em;">
                 <div class="pricing__item price1 ">
                 <form action="finddealerpage.php" method="post">
-                            <center><h2 style="font-size:35px;">Find Dealer</h2></center><br/><br/><br/>
-                     <h2 style="font-size:20px;">Select Brand</h2><br/>
-                                <div class="form-group">
+                            <center><h2 style="font-size:35px;">Find Dealer</h2></center>
+                     <h2 style="font-size:20px;margin-top:2em;">Select Brand</h2>
+                                <div class="form-group" style="margin-top:1em;">
                                 <select class="form-control" name="first-choice3" id="first-choice3" onchange="get_state()">
                                  <option value="" selected="">Brand</option>
                                     <?php
@@ -229,25 +228,25 @@ include_once("scripts.js");
                                 <option value="<?php echo $row1['brand'];?> "> <?php echo ucfirst($row1['brand']);?> </option>
                                     <?php } ?>
                                 </select>  
-                              </div><br/>
-                     <h2 style="font-size:20px;">Select State</h2><br/>
-                                <div class="form-group">
+                              </div>
+                     <h2 style="font-size:20px;margin-top:1.5em;">Select State</h2>
+                                <div class="form-group" style="margin-top:1em;">
                                 <select class="form-control" name="second-choice3" id="second-choice3" onchange="get_data3()">
                                     
                                     <option value="" selected="">State</option>
                                 </select>  
-                              </div><br/>
-                     <h2 style="font-size:20px;">Location</h2><br/>
-                                <div class="form-group">
+                              </div>
+                     <h2 style="font-size:20px;margin-top:1.5em;">Location</h2>
+                                <div class="form-group" style="margin-top:1em;">
                                 <select class="form-control" name="third-choice3" id="third-choice3">
 
                                     <option value="" selected="">Location</option>
                                 </select>  
                              
-                              </div><br/>
+                              </div>
                    
 
-                    <center><button class="button button--shikoba button--round-l" disabled="true" name="search" id="search"><i class="button__icon icon icon-search" ></i><span>Search</span></button></center><br/>
+                    <center><button style="margin-top:1.5em;" class="button button--shikoba button--round-l" disabled="true" name="search" id="search"><i class="button__icon icon icon-search" ></i><span>Search</span></button></center>
                     </form>
                 </div>
                 </div>
@@ -420,7 +419,7 @@ echo $row1['brand1'];?>&third-choice=<?php echo $row1['car1'];?>&first-choice2=<
                     <ul class=bs-docs-footer-links>
                         <li><a href='https://github.com/ezdine/sv--project/'>GitHub</a></li>
                         <li><a href='#'>Twitter</a></li>
-                        <li><a href='#'>Facebook</a></li>
+                        <li><a href='https://www.facebook.com/gautu.root/videos/526369390891491'>Facebook</a></li>
                         <li><a href='#' >About</a></li> 
                     </ul>
                 </div>
