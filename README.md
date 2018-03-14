@@ -1,13 +1,13 @@
-#Car Hunt
+# Car Hunt
 
 This is a responsive website which is meant to help a user find the car of his/her choice. A user can search according to his/her preferences,get reviews,compare cars,find dealers and calculate EMIs. The website implements web scraping to get reviews about cars from TopGear and geolocation to route the users from their current location to the showrooms. 
 
-##Getting Started
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 [Wireframe](https://github.com/ezdine/sv--project/blob/master/wireframe/CarHunt.pdf) for the website.
 
-##Prerequisities
+## Prerequisities
 
 1. Normalize.css
 2. Bootstrap.css
@@ -16,18 +16,18 @@ These instructions will get you a copy of the project up and running on your loc
 5. Fontawesome
 6. simpledomparser
 
-##Installation
+## Installation
 
 1. Clone the Git Repo. Alternatively, download and extract into a folder.
 2. Copy the files to the webroot of your server.
 3. Start local server and run it.
 
-##Running the Tests
+## Running the Tests
 1. Install Codeception.Follow steps in [Codeception](http://codeception.com/quickstart).
 2. Please make sure your local dev server is running.  Put application URL into:**tests/acceptance.suite.yml**.
 3. Test cases are included in **Tests** folder
 
-######Test Example
+###### Test Example
 
 ```
 <?php 
@@ -75,7 +75,7 @@ Time: 7.23 seconds, Memory: 8.00MB
 ?>
 ```
 
-##Built With
+## Built With
 
 1. Sublime,Atom
 2. XAMPP
